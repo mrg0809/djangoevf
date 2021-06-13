@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Existencias</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+</head>
+<body>
+    <div>
+        <h1 class="title is-1 has-text-primary">{{datos.modelo}}</h1>
+    </div>
+    <div>
+        <table class="table is-bordered is-striped is-narrow is-hoverable">
+            <thead class="subtitle is-3">
+                <th class="has-text-link">
+                    ALMACEN/TALLA
+                </th>
+                {% for y in datos["almacentj"] %}
+                <th class="has-text-link">
+                {{y[0]}}
+                </th>
+                {% endfor %}
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Almacen Tijuana
+                    </td>
+                    {% for x in datos["almacentj"] %}
+                    <td>
+                        {{x[1]}}
+                    </td>
+                    {% endfor %}
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

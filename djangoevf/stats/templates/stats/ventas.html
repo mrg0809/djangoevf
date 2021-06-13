@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{{fecha}}</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    </head>
+    <body>
+       <h1 class="title is-1 has-text-primary">{{fecha}}</h1>
+       <table class="table is-bordered is-striped is-narrow is-hoverable">
+           <thead class="subtitle is-3">
+               <th class="has-text-link">
+                   NOMBRE
+               </th>
+               <th class="has-text-link">
+                    VENTA
+                </th>
+           </thead>
+           <tbody>
+               {% for x in ventas %}
+               <tr>
+                   <td>
+                       {{x.0}}
+                   </td>
+                   <td>
+                    $ {{x.4}}
+                </td> 
+               </tr>
+               {% endfor %}
+           </tbody>
+       </table>
+    </body>
+</html>
