@@ -21,7 +21,8 @@
               <img class="login-logo" src="../../static/img/sflogo.png">
           </div>
 
-        <form>
+        <form method="POST">
+          {% csrf_token %}
             <div class="field">
                 <label class="label">Username</label>
                 <div class="control has-icons-right">
@@ -48,7 +49,7 @@
         </form>
         
           <div class="has-text-centered">
-            <a href="signup.html"> Solicitar acceso</a>
+            {{ mensaje }}
           </div>
         </section>
       </div>
