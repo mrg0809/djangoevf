@@ -2,38 +2,46 @@
 {% block content %}  
 
 <section>
-    <figure class="image is-128x128">
-        <img class="is- rounded" src="../../static/img/{{modelo}}.jpg">
-    </figure>
+    <hr>
     <div>
         <h1 class="title is-1 has-text-primary">{{modelo}}</h1>
     </div>
-    <div>
-        <table class="table is-bordered is-striped is-narrow is-hoverable">
-            <thead class="subtitle is-3">
-                <th class="has-text-link">
-                    ALMACEN/TALLA
-                </th>
-                {% for y in almacentj %}
-                <th class="has-text-link">
-                {{y.0}}
-                </th>
-                {% endfor %}
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        Almacen Tijuana
-                    </td>
-                    {% for x in almacentj %}
-                    <td>
-                        {{x.1}}
-                    </td>
+    <hr>
+    
+    <div class="columns">
+        <div class="column is-four-fifths">
+            <table class="table is-bordered is-striped is-narrow is-hoverable">
+                <thead class="subtitle is-3">
+                    <th class="has-text-link">
+                        ALMACEN/TALLA
+                    </th>
+                    {% for y in almacentj %}
+                    <th class="has-text-link">
+                    {{y.0}}
+                    </th>
                     {% endfor %}
-                </tr>
-                
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Almacen Tijuana
+                        </td>
+                        {% for x in almacentj %}
+                        <td>
+                            {{x.1}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="column">
+            <figure class="image is-128x128">
+                <img class="is- rounded" src="../../static/img/modelos/{{modelo}}.jpg">
+            </figure>
+        </div>
     </div>
+
 </section>
 {% endblock %}

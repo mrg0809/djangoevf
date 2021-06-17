@@ -27,9 +27,20 @@
                 <a href="/dash" class="navbar-item">
                     Dashboard
                 </a>
-                <a class="navbar-item">
-                    Ventas
-                </a>
+                <div class="navbar-item has-dropdown is is-hoverable">
+                    <a class="navbar-link">
+                        Ventas
+                    </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                            <form action="/venta/">
+                                <input type="date" name="fecha" dateformat=DD/MM/YYYY>
+                                <button type="submit" class="button is-black">OK</button>
+                            </form>
+                        </a>
+                        
+                    </div>
+                </div>
                 <a class="navbar-item">
                     Existencias
                 </a>

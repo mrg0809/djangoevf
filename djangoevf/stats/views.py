@@ -38,7 +38,7 @@ def index(request):
     return render(request, "stats/index.html", {"mensaje" : mensaje})
 
 @login_required
-def ventas(request, fecha):
+def ventasAPI(request, fecha):
     par = [fecha, fecha, 0, 'N', 0, 'a', 0, 'S']
     cur.execute("select * from VENTA_DESGL_PER(?, ?, ?, ?, ?, ?, ?, ?)", (par))
     ventas = cur.fetchall()
@@ -47,6 +47,26 @@ def ventas(request, fecha):
         "fecha":fecha
     }           
     return render(request, "stats/ventas.html", datos)
+
+@login_required
+def ventas(request):
+    fecha = request.GET.get("fecha")
+    """JUGANDO CON EL FORMATO DE LA FECHA LUEGO LO CAMBIO"""
+    print(type(fecha))
+    print(fecha)
+    date=datetime.strptime(fecha, '%Y-%m-%d')
+    print(date)
+    print(date.strftime('%d.%m.%Y'))
+    fechabuena = date.strftime('%d.%m.%Y')
+    par = [fechabuena, fechabuena, 0, 'N', 0, 'a', 0, 'S']
+    cur.execute("select * from VENTA_DESGL_PER(?, ?, ?, ?, ?, ?, ?, ?)", (par))
+    ventas = cur.fetchall()
+    datos = {
+        "ventas":ventas,
+        "fecha":fechabuena
+    }           
+    return render(request, "stats/ventas.html", datos)
+
 
 @login_required
 def dash(request):
