@@ -1,3 +1,4 @@
+from datetime import datetime, timezone
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -48,5 +49,23 @@ def ventas(request, fecha):
     return render(request, "stats/ventas.html", datos)
 
 @login_required
-def dash(request):   
-    return render(request, "stats/dash.html")
+def dash(request):
+    now = datetime.now()
+    return render(request, "stats/dash.html", {"now" : now})
+
+def salir(request):
+    logout(request)
+    return redirect("/")
+
+@login_required
+def articulo(request):
+    modelo = request.GET.get("modelo")
+    par = [modelo, 19]
+    cur.execute("select TALLA, EXISTENCIA from VT_BUSCA_MODELO_TALLAS(?, ?) order by TALLA asc", (par))
+    almacentj = cur.fetchall()
+    datos = {
+        "almacentj":almacentj,
+        "modelo":modelo
+    }
+    print(almacentj)
+    return render(request, "stats/articulo.html", datos)

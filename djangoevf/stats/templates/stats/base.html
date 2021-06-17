@@ -3,6 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../static/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/img/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff"> 
     <title>SF EVF</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
@@ -11,13 +16,15 @@
     <nav class="navbar is-light" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item" href="http://www.evfstore.com">
-                <img src="../../static/img/evflogo.png" width="112" height="28">
+                <img src="../../static/img/evflogo.png" height="60%">
+                |
+                <img src="../../static/img/sflogo.png" height="60%">
             </a>
         </div>
     
         <div class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item">
+                <a href="/dash" class="navbar-item">
                     Dashboard
                 </a>
                 <a class="navbar-item">
@@ -26,7 +33,7 @@
                 <a class="navbar-item">
                     Existencias
                 </a>
-                <a class="navbar-item">
+                <a href="/accounts/logout/" class="navbar-item">
                     Cerrar Sesion
                 </a>
             </div>
@@ -34,10 +41,10 @@
             <div class="navbar-end">
                 
                 <div class="navbar-item">
-                    <form>
+                    <form action="/articulo/">
                         <div class="field has-addons">
                             <div class="control">
-                                <input class="input" type="text" placeholder="Modelo">
+                                <input class="input" type="text" placeholder="Modelo" name="modelo">
                             </div>
                             <div class="control">
                                 <button type="submit" class="button is-black">Buscar</button>

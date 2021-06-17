@@ -1,28 +1,128 @@
 {% extends 'stats/base.html' %}
 {% block content %}    
-<section>
-       <h1 class="title is-1 has-text-primary">{{fecha}}</h1>
-       <table class="table is-bordered is-striped is-narrow is-hoverable">
-           <thead class="subtitle is-3">
-               <th class="has-text-link">
-                   NOMBRE
-               </th>
-               <th class="has-text-link">
-                    VENTA
-                </th>
-           </thead>
-           <tbody>
-               {% for x in ventas %}
-               <tr>
-                   <td>
-                       {{x.0}}
-                   </td>
-                   <td>
-                    $ {{x.4}}
-                </td> 
-               </tr>
-               {% endfor %}
-           </tbody>
-       </table>
-    </section>
+<div class="section">
+    <div class="columns">
+
+      
+      <main class="column">
+        <div class="level">
+          <div class="level-left">
+            <div class="level-item">
+              <div class="title">Bienvenido {{ user.username }}</div>
+            </div>
+          </div>
+          <div class="level-right">
+            <div class="level-item">
+              <button type="button" class="button is-small">
+                {{ now }}
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="columns is-multiline">
+          <div class="column">
+            <div class="box">
+              <div class="heading">Venta al momento</div>
+              <div class="title">$56,950</div>
+              <div class="level">
+                <div class="level-item">
+                  <div class="">
+                    <div class="heading">Transacciones</div>
+                    <div class="title is-5">58</div>
+                  </div>
+                </div>
+                <div class="level-item">
+                  <div class="">
+                    <div class="heading">Ticket promedio</div>
+                    <div class="title is-5">$999</div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <div class="heading">Venta en mes</div>
+              <div class="title">$125,257</div>
+              <div class="level">
+                <div class="level-item">
+                  <div class="">
+                    <div class="heading">AA</div>
+                    <div class="title is-5">$300,000</div>
+                  </div>
+                </div>
+                <div class="level-item">
+                  <div class="">
+                    <div class="heading">Dif $</div>
+                    <div class="title is-5">250,000</div>
+                  </div>
+                </div>
+                <div class="level-item">
+                  <div class="">
+                    <div class="heading">Dif %</div>
+                    <div class="title is-5">-8%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="box">
+              <div class="heading">Feedback Activity</div>
+              <div class="title">78% &uarr;</div>
+              <div class="level">
+                <div class="level-item">
+                  <div class="">
+                    <div class="heading">Positive</div>
+                    <div class="title is-5">1560</div>
+                  </div>
+                </div>
+                <div class="level-item">
+                  <div class="">
+                    <div class="heading">Negative</div>
+                    <div class="title is-5">368</div>
+                  </div>
+                </div>
+                <div class="level-item">
+                  <div class="">
+                    <div class="heading">Pos/Neg %</div>
+                    <div class="title is-5">77% / 23%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="columns is-multiline">
+          <div class="column is-6">
+            <div class="panel">
+              <p class="panel-heading">
+                Mejores Articulos
+              </p>
+              <div class="panel-block">
+                <figure class="image is-16x9">
+                  <img src="https://placehold.it/1280x720">
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="panel">
+              <p class="panel-heading">
+                Mejores Tiendas
+              </p>
+              <div class="panel-block">
+                <figure class="image is-16x9">
+                  <img src="https://placehold.it/1280x720">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
     {% endblock %}
