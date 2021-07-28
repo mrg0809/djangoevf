@@ -22,18 +22,18 @@
           <div class="column">
             <div class="box">
               <div class="heading">Venta al momento</div>
-              <div class="title">$56,950</div>
+              <div class="title">${{ venta.0 }}</div>
               <div class="level">
                 <div class="level-item">
                   <div class="">
                     <div class="heading">Transacciones</div>
-                    <div class="title is-5">58</div>
+                    <div class="title is-5">{{ totaltransacciones }}</div>
                   </div>
                 </div>
                 <div class="level-item">
                   <div class="">
                     <div class="heading">Ticket promedio</div>
-                    <div class="title is-5">$999</div>
+                    <div class="title is-5">$ {{ ticket }}</div>
                   </div>
                 </div>
                 
@@ -43,24 +43,24 @@
           <div class="column">
             <div class="box">
               <div class="heading">Venta en mes</div>
-              <div class="title">$125,257</div>
+              <div class="title">$ {{ ventames.0 }}</div>
               <div class="level">
                 <div class="level-item">
                   <div class="">
                     <div class="heading">AA</div>
-                    <div class="title is-5">$300,000</div>
+                    <div class="title is-5">$ {{ ventamesaa.0 }}</div>
                   </div>
                 </div>
                 <div class="level-item">
                   <div class="">
                     <div class="heading">Dif $</div>
-                    <div class="title is-5">250,000</div>
+                    <div class="title is-5">$ {{ diferencia }}</div>
                   </div>
                 </div>
                 <div class="level-item">
                   <div class="">
                     <div class="heading">Dif %</div>
-                    <div class="title is-5">-8%</div>
+                    <div class="title is-5">{{ diferenciap }}%</div>
                   </div>
                 </div>
               </div>
@@ -74,9 +74,36 @@
                 Dia anterior
               </p>
               <div class="panel-block">
-                <figure class="image is-16x9">
-                  Venta dia anterior
-                </figure>
+                       <table class="table is-fullwidth is-bordered is-striped is-narrow">
+                           <thead class="subtitle is-5">
+                               <th class="has-text-black">
+                                   NOMBRE
+                               </th>
+                               <th class="has-text-black">
+                                       VENTA
+                                   </th>
+                           </thead>
+                           <tbody>
+                               {% for x in ventas %}
+                               <tr>
+                                   <td>
+                                       {{x.0}}
+                                   </td>
+                                   <td>
+                                       $ {{x.4}}
+                                   </td> 
+                               </tr>
+                               {% endfor %}
+                           </tbody>
+                           <tfoot>
+                               <th>
+                                   Total
+                               </th>
+                               <th>
+                                   $ {{ total }}
+                               </th>
+                           </tfoot>
+                       </table>
               </div>
             </div>
           </div>
