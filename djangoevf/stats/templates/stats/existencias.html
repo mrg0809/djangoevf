@@ -1,0 +1,147 @@
+{% extends 'stats/base.html' %}
+{% block content %}  
+
+<section>
+    <hr>
+    <div>
+        <h1 class="title is-1 has-text-black">{{modelo}}</h1>
+    </div>
+    <hr>
+    
+    <div class="columns">
+        <div class="column is-four-fifths">
+            <table class="table is-bordered is-striped is-narrow is-hoverable">
+                <thead class="subtitle is-5">
+                    <th class="has-text-black">
+                        ALMACEN/TALLA
+                    </th>
+                    {% for y in talla %}
+                    <th class="has-text-black">
+                    {{y}}
+                    </th>
+                    {% endfor %}
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            Almacen Tijuana
+                        </td>
+                        {% for x in almacentj %}
+                        <td>
+                            {{x.1}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>
+                            Rio3
+                        </td>
+                        {% for x in rio3 %}
+                        <td>
+                            {{x.1}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>
+                            Macroplaza
+                        </td>
+                        {% for x in macroplaza %}
+                        <td>
+                            {{x.1}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>
+                            Macroplaza 2
+                        </td>
+                        {% for x in macroplaza2 %}
+                        <td>
+                            {{x.1}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>
+                            Galerias
+                        </td>
+                        {% for x in galerias %}
+                        <td>
+                            {{x.1}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>
+                            Palmas
+                        </td>
+                        {% for x in palmas %}
+                        <td>
+                            {{x.1}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>
+                            Senderos 1
+                        </td>
+                        {% for x in senderos1 %}
+                        <td>
+                            {{x.1}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>
+                            Senderos 2
+                        </td>
+                        {% for x in senderos2 %}
+                        <td>
+                            {{x.1}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>
+                            Ensenada 1
+                        </td>
+                        {% for x in ensenada1 %}
+                        <td>
+                            {{x.1}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>
+                            Ensenada 2
+                        </td>
+                        {% for x in ensenada2 %}
+                        <td>
+                            {{x.1}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        <td>
+                            Ensenada 3
+                        </td>
+                        {% for x in ensenada3 %}
+                        <td>
+                            {{x.1}}
+                        </td>
+                        {% endfor %}
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="column">
+            <figure class="image is-128x128">
+                <img class="is-rounded" src="../../static/img/modelos/{{modelo}}.jpg">
+            </figure>
+        </div>
+    </div>
+
+</section>
+{% endblock %}

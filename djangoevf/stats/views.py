@@ -9,6 +9,7 @@ import firebirdsql
 
 from .models import Almacen
 from .serializer import AlmacenSerializer
+from .tallas import TallasAlmacen, consultaTallas
 
 
 """Datos para conexion a base de datos remota"""
@@ -110,7 +111,10 @@ def dash(request):
     totaltransacciones = int(totaltransacciones)
 
     """TICKET PROMEDIO"""
-    ticket = format(venta[0]/totaltransacciones, '.2f')
+    if totaltransacciones > 0:
+        ticket = format(venta[0]/totaltransacciones, '.2f')
+    else:
+        ticket = 0
 
     """VENTA EN MES"""
     parmesactual = [primerdia, fecha, 0, 'N']
@@ -157,3 +161,36 @@ def articulo(request):
     }
     print(almacentj)
     return render(request, "stats/articulo.html", datos)
+
+
+@login_required
+def existencias(request):
+    modelo = request.GET.get("modelo")
+    talla = consultaTallas(modelo)
+    almacentj = TallasAlmacen(modelo, 19)
+    rio3 = TallasAlmacen(modelo, 311173)
+    macroplaza = TallasAlmacen(modelo, 311174)
+    macroplaza2 = TallasAlmacen(modelo, 1418674)
+    galerias = TallasAlmacen(modelo, 311175)
+    palmas = TallasAlmacen(modelo, 311175)
+    senderos1 = TallasAlmacen(modelo, 1919086)
+    senderos2 = TallasAlmacen(modelo, 2324873)
+    ensenada1 = TallasAlmacen(modelo, 311179)
+    ensenada2 = TallasAlmacen(modelo, 311180)
+    ensenada3 = TallasAlmacen(modelo, 1925935)
+    datos = {
+        "talla":talla,
+        "modelo":modelo,
+        "almacentj":almacentj,
+        "rio3":rio3,
+        "macroplaza":macroplaza,
+        "macroplaza2":macroplaza2,
+        "galerias":galerias,
+        "palmas":palmas,
+        "senderos1":senderos1,
+        "senderos2":senderos2,
+        "ensenada1":ensenada1,
+        "ensenada2":ensenada2,
+        "ensenada3":ensenada3,
+    }
+    return render(request, "stats/existencias.html", datos)

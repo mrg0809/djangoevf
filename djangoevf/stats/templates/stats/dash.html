@@ -1,4 +1,6 @@
 {% extends 'stats/base.html' %}
+{% load static %}
+
 {% block content %}    
 <div class="section">
     <div class="columns">     
@@ -110,12 +112,15 @@
           <div class="column is-6">
             <div class="panel">
               <p class="panel-heading">
-                Mejores Articulos
+                Mejores Tiendas
               </p>
               <div class="panel-block">
-                <figure class="image is-16x9">
-                  Mejores Articulos
+                
+                <figure class="highcharts-figure">
+                  <div id="container"></div>
+                  
                 </figure>
+                  
               </div>
             </div>
           </div>
@@ -123,4 +128,83 @@
       </main>
     </div>
   </div>
+  <script type="application/javascript">
+    Highcharts.chart('container', {
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+      },
+      title: {
+        text: 'Dia anterior'
+      },
+      tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      },
+      accessibility: {
+        point: {
+          valueSuffix: '%'
+        }
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+          }
+        }
+      },
+      series: [{
+        name: 'Tiendas',
+        colorByPoint: true,
+        data: [{
+          name: '{{ventas.0.0}}',
+          y: {{ventas.0.4}}
+        }, {
+          name: '{{ventas.1.0}}',
+          y: {{ventas.1.4}}
+        }, {
+          name: '{{ventas.2.0}}',
+          y: {{ventas.2.4}}
+        }, {
+          name: '{{ventas.3.0}}',
+          y: {{ventas.3.4}}
+        }, {
+          name: '{{ventas.4.0}}',
+          y: {{ventas.4.4}}
+        }, {
+          name: '{{ventas.5.0}}',
+          y: {{ventas.5.4}}
+        }, {
+          name: '{{ventas.6.0}}',
+          y: {{ventas.6.4}}
+        }, {
+          name: '{{ventas.7.0}}',
+          y: {{ventas.7.4}}
+        }, {
+          name: '{{ventas.8.0}}',
+          y: {{ventas.8.4}}
+        }, {
+          name: '{{ventas.9.0}}',
+          y: {{ventas.9.4}}
+        }, {
+          name: '{{ventas.10.0}}',
+          y: {{ventas.10.4}}
+        }, {
+          name: '{{ventas.11.0}}',
+          y: {{ventas.11.4}}
+        }, {
+          name: '{{ventas.12.0}}',
+          y: {{ventas.12.4}}
+        }, {
+          name: '{{ventas.13.0}}',
+          y: {{ventas.13.4}}
+        }]
+      }]
+    });
+    
+  </script>
     {% endblock %}
