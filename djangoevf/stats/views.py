@@ -15,7 +15,7 @@ from .tallas import TallasAlmacen, consultaTallas
 """Datos para conexion a base de datos remota"""
 conn = firebirdsql.connect(
     host='sfan.ddns.net',
-    database='C:\Microsip datos\SPORTS FAN 2016.FDB',
+    database='C:\Microsip datos\PRUEBAS.FDB',
     port=2000,
     user='SYSDBA',
     password='flexracer',
@@ -165,7 +165,7 @@ def articulo(request):
 
 @login_required
 def existencias(request):
-    modelo = request.GET.get("modelo")
+    modelo = request.GET.get("modelo").upper()
     talla = consultaTallas(modelo)
     almacentj = TallasAlmacen(modelo, 19)
     rio3 = TallasAlmacen(modelo, 311173)

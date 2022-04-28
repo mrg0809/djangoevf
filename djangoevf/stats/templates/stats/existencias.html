@@ -1,8 +1,21 @@
 {% extends 'stats/base.html' %}
 {% block content %}  
+<script src="../../static/js/modal.js"></script>
 
 <section>
+
+    <div id="image-modal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <p class="image is-square">
+            <img src="../../static/img/modelos/{{modelo}}.jpg" alt="{{modelo}}">
+          </p>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
     <hr>
+
     <div>
         <h1 class="title is-1 has-text-black">{{modelo}}</h1>
     </div>
@@ -10,25 +23,25 @@
     
     <div class="columns">
         <div class="column is-four-fifths">
-            <table class="table is-bordered is-striped is-narrow is-hoverable">
+            <table class="table is-fullwidth is-bordered is-narrow is-hoverable">
                 <thead class="subtitle is-5">
-                    <th class="has-text-black">
+                    <th class="has-text-white has-background-black">
                         ALMACEN/TALLA
                     </th>
                     {% for y in talla %}
-                    <th class="has-text-black">
+                    <th class="has-text-white has-background-black">
                     {{y}}
                     </th>
                     {% endfor %}
                 </thead>
-                <tbody>
+                <tbody class="has-background-grey-lighter">
                     <tr>
                         <td>
                             Almacen Tijuana
                         </td>
                         {% for x in almacentj %}
                         <td>
-                            {{x.1}}
+                            {{x.1|floatformat:"0"}}
                         </td>
                         {% endfor %}
                     </tr>
@@ -38,7 +51,7 @@
                         </td>
                         {% for x in rio3 %}
                         <td>
-                            {{x.1}}
+                            {{x.1|floatformat:"0"}}
                         </td>
                         {% endfor %}
                     </tr>
@@ -48,7 +61,7 @@
                         </td>
                         {% for x in macroplaza %}
                         <td>
-                            {{x.1}}
+                            {{x.1|floatformat:"0"}}
                         </td>
                         {% endfor %}
                     </tr>
@@ -58,7 +71,7 @@
                         </td>
                         {% for x in macroplaza2 %}
                         <td>
-                            {{x.1}}
+                            {{x.1|floatformat:"0"}}
                         </td>
                         {% endfor %}
                     </tr>
@@ -68,7 +81,7 @@
                         </td>
                         {% for x in galerias %}
                         <td>
-                            {{x.1}}
+                            {{x.1|floatformat:"0"}}
                         </td>
                         {% endfor %}
                     </tr>
@@ -78,7 +91,7 @@
                         </td>
                         {% for x in palmas %}
                         <td>
-                            {{x.1}}
+                            {{x.1|floatformat:"0"}}
                         </td>
                         {% endfor %}
                     </tr>
@@ -88,7 +101,7 @@
                         </td>
                         {% for x in senderos1 %}
                         <td>
-                            {{x.1}}
+                            {{x.1|floatformat:"0"}}
                         </td>
                         {% endfor %}
                     </tr>
@@ -98,7 +111,7 @@
                         </td>
                         {% for x in senderos2 %}
                         <td>
-                            {{x.1}}
+                            {{x.1|floatformat:"0"}}
                         </td>
                         {% endfor %}
                     </tr>
@@ -108,7 +121,7 @@
                         </td>
                         {% for x in ensenada1 %}
                         <td>
-                            {{x.1}}
+                            {{x.1|floatformat:"0"}}
                         </td>
                         {% endfor %}
                     </tr>
@@ -118,7 +131,7 @@
                         </td>
                         {% for x in ensenada2 %}
                         <td>
-                            {{x.1}}
+                            {{x.1|floatformat:"0"}}
                         </td>
                         {% endfor %}
                     </tr>
@@ -128,7 +141,7 @@
                         </td>
                         {% for x in ensenada3 %}
                         <td>
-                            {{x.1}}
+                            {{x.1|floatformat:"0"}}
                         </td>
                         {% endfor %}
                     </tr>
@@ -138,7 +151,10 @@
         </div>
         <div class="column">
             <figure class="image is-128x128">
-                <img class="is-rounded" src="../../static/img/modelos/{{modelo}}.jpg">
+                <button class="js-modal-trigger" data-target="image-modal">
+                    <img class="is-rounded" src="../../static/img/modelos/{{modelo}}.jpg">
+                </button>
+                </a>
             </figure>
         </div>
     </div>
