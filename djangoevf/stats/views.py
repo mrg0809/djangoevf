@@ -128,7 +128,10 @@ def dash(request):
 
     """DIFERENCIAS DE VENTA"""
     diferencia = ventames[0] - ventamesaa[0]
-    diferenciap = format(ventames[0] / ventamesaa[0], '.1f')
+    try:
+        diferenciap = format(ventames[0] / ventamesaa[0], '.1f')
+    except:
+        diferenciap = 0
 
     datos = {
         "venta":venta,
