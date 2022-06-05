@@ -15,7 +15,7 @@ from .tallas import TallasAlmacen, consultaTallas
 """Datos para conexion a base de datos remota"""
 conn = firebirdsql.connect(
     host='sfan.ddns.net',
-    database='C:\Microsip datos\PRUEBAS.FDB',
+    database='C:\Microsip datos\SPORTS FAN 2016.FDB',
     port=2000,
     user='SYSDBA',
     password='flexracer',
