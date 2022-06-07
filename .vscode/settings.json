@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/0582b808-03f5-4464-ba59-699ce40d948e/microsoft.web/sites/subscriptions/0582b808-03f5-4464-ba59-699ce40d948e/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/sportsfanapi",
+    "appService.deploySubpath": "djangoevf"
+}
